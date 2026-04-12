@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="墨韵诗生 - AI古诗词生成器，融合传统水墨画美学与AI技术">
+    <title>墨韵诗生 - AI古诗生成器</title>
+    <link rel="stylesheet" href="style-optimized.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <div class="seal-mark">
+                <img src="images/seal-stamp.jpg" alt="印章" onerror="this.style.display='none'">
+                <span class="seal-text">印</span>
+            </div>
+            <h1 class="title">
+                <span class="title-main">墨韵诗生</span>
+                <span class="title-sub">AI古诗词生成器</span>
+            </h1>
+            <div class="header-decoration"></div>
+        </header>
+
+        <!-- 输入区域 -->
+        <section class="input-section">
+            <div class="input-container">
+                <label for="prompt" class="input-label">
+                    <span class="label-icon">✦</span>
+                    请输入诗词主题或一句话
+                </label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="prompt" 
+                        class="prompt-input" 
+                        placeholder="例：春江花月夜、思念故乡、山水之间..."
+                        maxlength="50"
+                    >
+                    <div class="input-decoration"></div>
+                </div>
+                <div class="input-hints">
+                    <button class="hint-btn" data-hint="春日江南烟雨">春日江南烟雨</button>
+                    <button class="hint-btn" data-hint="明月思乡">明月思乡</button>
+                    <button class="hint-btn" data-hint="山水之间">山水之间</button>
+                    <button class="hint-btn" data-hint="秋风落叶">秋风落叶</button>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="generate-btn">
+                <span class="btn-text">挥毫泼墨</span>
+                <span class="btn-decoration"></span>
+            </button>
+        </section>
+
+        <!-- 诗词展示区域 -->
+        <section class="poem-section" id="poemSection">
+            <div class="poem-container">
+                <div class="scroll-image">
+                    <img src="images/scroll-container.jpg" alt="竹简卷轴" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="poem-content" id="poemContent">
+                    <div class="placeholder">
+                        <div class="placeholder-icon">📜</div>
+                        <p>诗词将在此处显现</p>
+                        <p class="placeholder-hint">如同笔墨在宣纸上缓缓晕开</p>
+                    </div>
+                </div>
+                
+                <!-- 功能按钮 -->
+                <div class="poem-actions" id="poemActions" style="display: none;">
+                    <button class="action-btn copy-btn" id="copyBtn">
+                        <span>📋</span> 复制
+                    </button>
+                    <button class="action-btn regenerate-btn" id="regenerateBtn">
+                        <span>🔄</span> 重新生成
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 加载状态 -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="brush-animation">
+                    <div class="brush-stroke stroke-1"></div>
+                    <div class="brush-stroke stroke-2"></div>
+                    <div class="brush-stroke stroke-3"></div>
+                </div>
+                <p class="loading-text">墨香四溢，诗意渐生...</p>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-seal">
+                <img src="images/seal-stamp.jpg" alt="印章" onerror="this.style.display='none'">
+                <span class="seal-text">天佑</span>
+            </div>
+            <p class="footer-info">
+                作者：张天佑 | 沈阳市第二十八中学 高一八班
+            </p>
+            <p class="footer-tech">
+                技术支持：DeepSeek AI | 2026沈阳市中小学生信息素养提升实践活动
+            </p>
+        </footer>
+    </div>
+
+    <!-- 提示信息 -->
+    <div class="toast" id="toast"></div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
